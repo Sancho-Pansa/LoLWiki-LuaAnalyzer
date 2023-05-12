@@ -7,6 +7,9 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 public class LuaFetcher {
@@ -18,20 +21,35 @@ public class LuaFetcher {
     }
 
     public String getLuaCode() {
+        Optional<BufferedReader> optionalReader = Optional.ofNullable(this.performConnection());
+        StringBuilder sBuilder = new StringBuilder();
+        try {
+            BufferedReader bReader = optionalReader.orElseThrow();
+            bReader.lines().forEach(sBuilder::append);
+            bReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (NoSuchElementException e) {
+            System.err.println("BufferedReader is null");
+            e.printStackTrace();
+        }
 
-        return null;
+        return sBuilder.toString();
     }
 
     private BufferedReader performConnection() {
         try {
-            URL url = new URL(API_PREFIX + "&page=" + pageName);
+            String encodedPageName = URLEncoder.encode(pageName, StandardCharsets.UTF_8);
+            URL url = new URL(API_PREFIX + "&page=" + encodedPageName);
+            System.out.println(url);
 
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
-            urlConnection.setRequestProperty("Content-Type", "application/json");
+            urlConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             urlConnection.setRequestProperty("User-Agent", "Mozilla/5.0");
 
             int responseCode = urlConnection.getResponseCode();
+            System.out.println("HTTP :: " + responseCode);
             if(responseCode == HttpURLConnection.HTTP_OK) {
                 InputStream is = urlConnection.getInputStream();
                 return new BufferedReader(new InputStreamReader(is));
