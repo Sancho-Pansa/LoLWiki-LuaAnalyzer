@@ -11,6 +11,8 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class LuaFetcher {
     private final String API_PREFIX = "https://leagueoflegends.fandom.com/ru/api.php?action=parse&format=json&prop=wikitext&formatversion=2";
@@ -33,8 +35,9 @@ public class LuaFetcher {
             System.err.println("BufferedReader is null");
             e.printStackTrace();
         }
-
-        return sBuilder.toString();
+        Pattern p = Pattern.compile("\"wikitext\":\"(.*)\"", Pattern.DOTALL);
+        Matcher m = p.matcher(sBuilder.toString());
+        return m.find() ? m.group() : "";
     }
 
     private BufferedReader performConnection() {
