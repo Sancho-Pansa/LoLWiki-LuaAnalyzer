@@ -7,22 +7,21 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
-import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class LuaFetcher {
-    private final String API_PREFIX = "https://leagueoflegends.fandom.com/ru/api.php?action=parse&format=json&prop=wikitext&formatversion=2";
-    private final String pageName;
+public class AllModulesFetcher {
 
-    public LuaFetcher(String pageName) {
-        this.pageName = pageName;
+    private final String API_PREFIX = "https://leagueoflegends.fandom.com/ru/api.php?action=query&list=allpages&apnamespace=828&aplimit=500&format=json&formatversion=2";
+
+    public AllModulesFetcher() {
+
     }
 
-    public String getLuaCode() {
+    public TreeSet<String> getAllModules() {
+        TreeSet<String> modulesSet = new TreeSet<>();
         Optional<BufferedReader> optionalReader = Optional.ofNullable(this.performConnection());
         StringBuilder sBuilder = new StringBuilder();
         try {
@@ -30,25 +29,32 @@ public class LuaFetcher {
             bReader.lines().forEach(sBuilder::append);
             bReader.close();
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (NoSuchElementException e) {
-            System.err.println("BufferedReader is null");
+            System.err.println("Buffered Reader is null");
             e.printStackTrace();
         }
-        Pattern p = Pattern.compile("\"wikitext\":\"(.*)\"", Pattern.DOTALL);
+        if(sBuilder.isEmpty())
+            throw new RuntimeException("Buffered Reader contains no data");
+
+        Pattern p = Pattern.compile("\"title\":\"(.*?)\"", Pattern.DOTALL);
         Matcher m = p.matcher(sBuilder.toString());
-        return m.find() ? m.group() : "";
+
+        m.results()
+                .map(a -> a.group(1))
+                .filter(s -> !(s.contains("/doc") || s.contains("/data")))
+                .peek(System.out::println)
+                .forEach(modulesSet::add);
+
+        return modulesSet;
     }
 
     private BufferedReader performConnection() {
         try {
-            String encodedPageName = URLEncoder.encode(pageName, StandardCharsets.UTF_8);
-            URL url = new URL(API_PREFIX + "&page=" + encodedPageName);
+            URL url = new URL(API_PREFIX);
             System.out.println(url);
 
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
-            urlConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            urlConnection.setRequestProperty("Content-Type", "application/json");
             urlConnection.setRequestProperty("User-Agent", "Mozilla/5.0");
 
             int responseCode = urlConnection.getResponseCode();

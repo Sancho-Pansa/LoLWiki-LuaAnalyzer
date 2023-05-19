@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea5dd4e1-09d4-48ba-91de-c909c17fe9b1" name="Changes" comment="Added regex processor for &quot;require&quot; command">
+    <list default="true" id="ea5dd4e1-09d4-48ba-91de-c909c17fe9b1" name="Changes" comment="Changed output format from void to Set">
+      <change afterPath="$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/AllModulesFetcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/LuaAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/LuaAnalyzer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/LuaFetcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/LuaModuleFetcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/MainClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/MainClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/io/sanchopansa/lolwiki/luaanalyzer/test/TestLuaAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/io/sanchopansa/lolwiki/luaanalyzer/test/TestLuaAnalyzer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,10 +69,32 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestLuaAnalyzer.testAllModulesFetch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LoLWiki-LuaAnalyzer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.sanchopansa.lolwiki.luaanalyzer.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="io.sanchopansa.lolwiki.luaanalyzer.test" />
+      <option name="MAIN_CLASS_NAME" value="io.sanchopansa.lolwiki.luaanalyzer.test.TestLuaAnalyzer" />
+      <option name="METHOD_NAME" value="testAllModulesFetch" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.MainClass" />
       <item itemvalue="JUnit.Full Test" />
+      <item itemvalue="JUnit.TestLuaAnalyzer.testAllModulesFetch" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.TestLuaAnalyzer.testAllModulesFetch" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -109,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683905830576</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Changed output format from void to Set">
+      <created>1684487716206</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1684487716206</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -128,6 +159,18 @@
     <MESSAGE value="Simple successful api request from Wiki" />
     <MESSAGE value="Finished API request code" />
     <MESSAGE value="Added regex processor for &quot;require&quot; command" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added regex processor for &quot;require&quot; command" />
+    <MESSAGE value="Changed output format from void to Set" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed output format from void to Set" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/test/io/sanchopansa/lolwiki/luaanalyzer/test/TestLuaAnalyzer.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

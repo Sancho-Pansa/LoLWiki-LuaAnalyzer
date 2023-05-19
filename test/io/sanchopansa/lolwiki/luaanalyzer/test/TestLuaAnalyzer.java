@@ -17,7 +17,13 @@ public class TestLuaAnalyzer {
 
     @Test
     void testURLFetch() {
-        LuaFetcher fetcher = new LuaFetcher(testModule);
+        LuaModuleFetcher fetcher = new LuaModuleFetcher(testModule);
         assertFalse(fetcher.getLuaCode().isEmpty());
+    }
+
+    @Test
+    void testAllModulesFetch() {
+        AllModulesFetcher fetcher = new AllModulesFetcher();
+        assertFalse(fetcher.getAllModules().isEmpty());
     }
 }
