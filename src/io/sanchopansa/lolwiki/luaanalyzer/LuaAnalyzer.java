@@ -14,12 +14,12 @@ public class LuaAnalyzer {
     public Set<String> analyzeLuaDependencies(String code) {
         Set<String> dependencies;
 
-        String requirePattern = "require *?\\((\\\\\"|')(.*?)(\\\\\"|')\\)";
+        String requirePattern = "(?:require|mw\\.loadData) *?\\((?:\\\\\"|')(.*?)?(\\\\\"|')*+\\)";
         Pattern pattern = Pattern.compile(requirePattern);
         Matcher matcher = pattern.matcher(code);
 
         dependencies = matcher.results()
-                .map(a -> a.group(2))
+                .map(a -> a.group(1))
                 .collect(Collectors.toSet());
         return dependencies;
     }

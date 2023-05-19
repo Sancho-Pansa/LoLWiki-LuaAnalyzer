@@ -33,7 +33,7 @@ public class AllModulesFetcher {
             e.printStackTrace();
         }
         if(sBuilder.isEmpty())
-            throw new RuntimeException("Buffered Reader contains no data");
+            throw new RuntimeException("BufferedReader contains no data");
 
         Pattern p = Pattern.compile("\"title\":\"(.*?)\"", Pattern.DOTALL);
         Matcher m = p.matcher(sBuilder.toString());
@@ -41,7 +41,6 @@ public class AllModulesFetcher {
         m.results()
                 .map(a -> a.group(1))
                 .filter(s -> !(s.contains("/doc") || s.contains("/data")))
-                .peek(System.out::println)
                 .forEach(modulesSet::add);
 
         return modulesSet;

@@ -22,6 +22,14 @@ public class TestLuaAnalyzer {
     }
 
     @Test
+    void testLuaAnalyzer() {
+        String module = "Модуль:SkinData";
+        LuaModuleFetcher fetcher = new LuaModuleFetcher(module);
+        LuaAnalyzer analyzer = new LuaAnalyzer();
+        assertFalse(analyzer.analyzeLuaDependencies(fetcher.getLuaCode()).isEmpty());
+    }
+
+    @Test
     void testAllModulesFetch() {
         AllModulesFetcher fetcher = new AllModulesFetcher();
         assertFalse(fetcher.getAllModules().isEmpty());
