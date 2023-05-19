@@ -5,9 +5,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-public class LuaAnalyzer {
+public class ModuleAnalyzer {
 
-    public LuaAnalyzer() {
+    public ModuleAnalyzer() {
 
     }
 

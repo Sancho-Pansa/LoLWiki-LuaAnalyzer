@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea5dd4e1-09d4-48ba-91de-c909c17fe9b1" name="Changes" comment="Added query for all modules on LoLWiki">
+    <list default="true" id="ea5dd4e1-09d4-48ba-91de-c909c17fe9b1" name="Changes" comment="Pipelined fetch of all modules and analyze of single module">
+      <change afterPath="$PROJECT_DIR$/resources/SkinData.lua" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/DependencyListFormatter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/LuaLinter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/AllModulesFetcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/AllModulesFetcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/LuaAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/LuaAnalyzer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoLWiki-LuaAnalyzer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/LoLWiki-LuaAnalyzer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/LuaAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/ModuleAnalyzer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/LuaModuleFetcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/ModuleFetcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/MainClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/MainClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/io/sanchopansa/lolwiki/luaanalyzer/test/TestLuaAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/io/sanchopansa/lolwiki/luaanalyzer/test/TestLuaAnalyzer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/io/sanchopansa/lolwiki/luaanalyzer/test/TestLuaAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/io/sanchopansa/lolwiki/luaanalyzer/test/TestModuleAnalyzer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,22 +39,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last.edited.regexp": "mw.loadData(\"Модуль:ChampionData/engnames\")",
-    "last_directory_selection": "C:/Users/v.zuev/IdeaProjects/LoLWiki-LuaAnalyzer/test",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last.edited.regexp&quot;: &quot;mw.loadData(\&quot;Модуль:ChampionData/engnames\&quot;)&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/v.zuev/IdeaProjects/LoLWiki-LuaAnalyzer/test&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.MainClass">
     <configuration name="MainClass" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="io.sanchopansa.lolwiki.luaanalyzer.MainClass" />
@@ -62,14 +67,14 @@
     <configuration name="Full Test" type="JUnit" factoryName="JUnit">
       <module name="LoLWiki-LuaAnalyzer" />
       <option name="PACKAGE_NAME" value="io.sanchopansa.lolwiki.luaanalyzer.test" />
-      <option name="MAIN_CLASS_NAME" value="io.sanchopansa.lolwiki.luaanalyzer.test.TestLuaAnalyzer" />
+      <option name="MAIN_CLASS_NAME" value="io.sanchopansa.lolwiki.luaanalyzer.test.TestModuleAnalyzer" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestLuaAnalyzer.testAllModulesFetch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestModuleAnalyzer.testAllModulesFetch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="LoLWiki-LuaAnalyzer" />
       <extension name="coverage">
         <pattern>
@@ -78,14 +83,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="io.sanchopansa.lolwiki.luaanalyzer.test" />
-      <option name="MAIN_CLASS_NAME" value="io.sanchopansa.lolwiki.luaanalyzer.test.TestLuaAnalyzer" />
+      <option name="MAIN_CLASS_NAME" value="io.sanchopansa.lolwiki.luaanalyzer.test.TestModuleAnalyzer" />
       <option name="METHOD_NAME" value="testAllModulesFetch" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestLuaAnalyzer.testLuaAnalyzer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestModuleAnalyzer.testLuaAnalyzer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="LoLWiki-LuaAnalyzer" />
       <extension name="coverage">
         <pattern>
@@ -94,7 +99,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="io.sanchopansa.lolwiki.luaanalyzer.test" />
-      <option name="MAIN_CLASS_NAME" value="io.sanchopansa.lolwiki.luaanalyzer.test.TestLuaAnalyzer" />
+      <option name="MAIN_CLASS_NAME" value="io.sanchopansa.lolwiki.luaanalyzer.test.TestModuleAnalyzer" />
       <option name="METHOD_NAME" value="testLuaAnalyzer" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -104,13 +109,13 @@
     <list>
       <item itemvalue="Application.MainClass" />
       <item itemvalue="JUnit.Full Test" />
-      <item itemvalue="JUnit.TestLuaAnalyzer.testAllModulesFetch" />
-      <item itemvalue="JUnit.TestLuaAnalyzer.testLuaAnalyzer" />
+      <item itemvalue="JUnit.TestModuleAnalyzer.testAllModulesFetch" />
+      <item itemvalue="JUnit.TestModuleAnalyzer.testLuaAnalyzer" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestLuaAnalyzer.testLuaAnalyzer" />
-        <item itemvalue="JUnit.TestLuaAnalyzer.testAllModulesFetch" />
+        <item itemvalue="JUnit.TestModuleAnalyzer.testLuaAnalyzer" />
+        <item itemvalue="JUnit.TestModuleAnalyzer.testAllModulesFetch" />
       </list>
     </recent_temporary>
   </component>
@@ -165,8 +170,18 @@
       <option name="project" value="LOCAL" />
       <updated>1684490598374</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Pipelined fetch of all modules and analyze of single module">
+      <created>1684497284734</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1684497284734</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.lua" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -186,6 +201,11 @@
     <MESSAGE value="Added regex processor for &quot;require&quot; command" />
     <MESSAGE value="Changed output format from void to Set" />
     <MESSAGE value="Added query for all modules on LoLWiki" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added query for all modules on LoLWiki" />
+    <MESSAGE value="Pipelined fetch of all modules and analyze of single module" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pipelined fetch of all modules and analyze of single module" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

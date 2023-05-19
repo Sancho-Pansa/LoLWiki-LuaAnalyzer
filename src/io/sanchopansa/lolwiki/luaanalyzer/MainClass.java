@@ -1,5 +1,6 @@
 package io.sanchopansa.lolwiki.luaanalyzer;
 
+import java.io.IOException;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -12,11 +13,18 @@ public class MainClass {
         TreeMap<String, Set<String>> luaDependencyMap = new TreeMap<>();
 
         for(String x: modules) {
-            LuaModuleFetcher singleModuleFetcher = new LuaModuleFetcher(x);
+            ModuleFetcher singleModuleFetcher = new ModuleFetcher(x);
             String sourceCode = singleModuleFetcher.getLuaCode();
-            LuaAnalyzer analyzer = new LuaAnalyzer();
+            ModuleAnalyzer analyzer = new ModuleAnalyzer();
             var set = analyzer.analyzeLuaDependencies(sourceCode);
             luaDependencyMap.put(x, set);
+        }
+
+        DependencyListFormatter formatter = new DependencyListFormatter(luaDependencyMap);
+        try {
+            formatter.getFormattedOutput(System.out);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

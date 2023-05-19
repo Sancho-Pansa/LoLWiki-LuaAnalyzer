@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestLuaAnalyzer {
+public class TestModuleAnalyzer {
 
     private final String testModule = "Модуль:SkinData";
 
@@ -17,15 +17,15 @@ public class TestLuaAnalyzer {
 
     @Test
     void testURLFetch() {
-        LuaModuleFetcher fetcher = new LuaModuleFetcher(testModule);
+        ModuleFetcher fetcher = new ModuleFetcher(testModule);
         assertFalse(fetcher.getLuaCode().isEmpty());
     }
 
     @Test
     void testLuaAnalyzer() {
         String module = "Модуль:SkinData";
-        LuaModuleFetcher fetcher = new LuaModuleFetcher(module);
-        LuaAnalyzer analyzer = new LuaAnalyzer();
+        ModuleFetcher fetcher = new ModuleFetcher(module);
+        ModuleAnalyzer analyzer = new ModuleAnalyzer();
         assertFalse(analyzer.analyzeLuaDependencies(fetcher.getLuaCode()).isEmpty());
     }
 

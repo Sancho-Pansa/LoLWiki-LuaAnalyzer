@@ -14,11 +14,11 @@ import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class LuaModuleFetcher {
+public class ModuleFetcher {
     private final String API_PREFIX = "https://leagueoflegends.fandom.com/ru/api.php?action=parse&format=json&prop=wikitext&formatversion=2";
     private final String pageName;
 
-    public LuaModuleFetcher(String pageName) {
+    public ModuleFetcher(String pageName) {
         this.pageName = pageName;
     }
 
