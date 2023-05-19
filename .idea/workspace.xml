@@ -4,10 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea5dd4e1-09d4-48ba-91de-c909c17fe9b1" name="Changes" comment="Linter prototype">
-      <change afterPath="$PROJECT_DIR$/test/io/sanchopansa/lolwiki/luaanalyzer/test/TestLuaLinter.java" afterDir="false" />
+    <list default="true" id="ea5dd4e1-09d4-48ba-91de-c909c17fe9b1" name="Changes" comment="Pipelined fetch of all modules and analyze of single module">
+      <change afterPath="$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/lualinter/LuaFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_9_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_9_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_9_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_9_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/LuaLinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/LuaLinter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoLWiki-LuaAnalyzer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/LoLWiki-LuaAnalyzer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/LuaLinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/lualinter/LuaLinter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/io/sanchopansa/lolwiki/luaanalyzer/test/TestLuaLinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/io/sanchopansa/lolwiki/luaanalyzer/test/TestLuaLinter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,14 +57,19 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last.edited.regexp": "",
+    "last.edited.regexp": "function p.getData()",
     "last_directory_selection": "C:/Users/v.zuev/IdeaProjects/LoLWiki-LuaAnalyzer/test",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "settings.editor.selected.configurable": "settings.sync"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="io.sanchopansa.lolwiki.luaanalyzer.lualinter" />
+    </key>
+  </component>
   <component name="RunManager" selected="JUnit.TestLuaLinter">
     <configuration name="MainClass" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="io.sanchopansa.lolwiki.luaanalyzer.MainClass" />
@@ -73,7 +88,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestLuaLinter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestLuaLinter" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="LoLWiki-LuaAnalyzer" />
       <extension name="coverage">
         <pattern>
@@ -83,6 +98,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="io.sanchopansa.lolwiki.luaanalyzer.test" />
       <option name="MAIN_CLASS_NAME" value="io.sanchopansa.lolwiki.luaanalyzer.test.TestLuaLinter" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -122,14 +138,13 @@
     </configuration>
     <list>
       <item itemvalue="Application.MainClass" />
-      <item itemvalue="JUnit.Full Test" />
       <item itemvalue="JUnit.TestLuaLinter" />
+      <item itemvalue="JUnit.Full Test" />
       <item itemvalue="JUnit.TestModuleAnalyzer.testAllModulesFetch" />
       <item itemvalue="JUnit.TestModuleAnalyzer.testLuaAnalyzer" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestLuaLinter" />
         <item itemvalue="JUnit.TestModuleAnalyzer.testLuaAnalyzer" />
         <item itemvalue="JUnit.TestModuleAnalyzer.testAllModulesFetch" />
       </list>
@@ -193,21 +208,7 @@
       <option name="project" value="LOCAL" />
       <updated>1684497284734</updated>
     </task>
-    <task id="LOCAL-00008" summary="Code for output formatting was moved to another class">
-      <created>1684504834430</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1684504834430</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Linter prototype">
-      <created>1684505089171</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1684505089171</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -232,25 +233,7 @@
     <MESSAGE value="Changed output format from void to Set" />
     <MESSAGE value="Added query for all modules on LoLWiki" />
     <MESSAGE value="Pipelined fetch of all modules and analyze of single module" />
-    <MESSAGE value="Code for output formatting was moved to another class" />
-    <MESSAGE value="Linter prototype" />
-    <option name="LAST_COMMIT_MESSAGE" value="Linter prototype" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/LuaLinter.java</url>
-          <line>23</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/LuaLinter.java</url>
-          <line>19</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <option name="LAST_COMMIT_MESSAGE" value="Pipelined fetch of all modules and analyze of single module" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
