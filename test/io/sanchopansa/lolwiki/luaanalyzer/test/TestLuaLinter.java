@@ -1,15 +1,13 @@
 package io.sanchopansa.lolwiki.luaanalyzer.test;
 
+import io.sanchopansa.lolwiki.luaanalyzer.ModuleFetcher;
 import io.sanchopansa.lolwiki.luaanalyzer.lualinter.LuaFunction;
 import io.sanchopansa.lolwiki.luaanalyzer.lualinter.LuaLinter;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,12 +16,8 @@ public class TestLuaLinter {
 
     @BeforeAll
     static void setUp() {
-        Path path = Paths.get("resources\\SkinData.lua");
-        try {
-            sourceCode = Files.readString(path);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        ModuleFetcher mFetcher = new ModuleFetcher("Module:SkinData");
+        sourceCode = mFetcher.getLuaCode();
     }
     @Test
     void testLinterProcessing() {
@@ -34,8 +28,17 @@ public class TestLuaLinter {
     @Test
     void testLuaFunctionProcess() {
         LuaLinter linter = new LuaLinter(sourceCode);
-        linter.processCode();
-        List<LuaFunction> functionList = linter.getFunctionList();
+        List<LuaFunction> functionList = linter.listAllFunctions();
+        functionList.forEach(System.out::println);
         assertEquals("get", functionList.get(0).getName());
+    }
+
+    @Test
+    void testDependencyList() {
+
+        LuaLinter linter = new LuaLinter(sourceCode);
+        Set<String> dependencies = linter.listAllDependencies();
+        dependencies.forEach(System.out::println);
+        assertTrue(dependencies.contains("Модуль:ImageLink"));
     }
 }
