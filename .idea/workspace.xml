@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea5dd4e1-09d4-48ba-91de-c909c17fe9b1" name="Changes" comment="Created simple function linter">
+    <list default="true" id="ea5dd4e1-09d4-48ba-91de-c909c17fe9b1" name="Changes" comment="Added dependency linter. Adjusted regexes for web format of modules">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/lualinter/LuaFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/lualinter/LuaFunction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/lualinter/LuaLinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/lualinter/LuaLinter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/io/sanchopansa/lolwiki/luaanalyzer/test/TestLuaLinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/io/sanchopansa/lolwiki/luaanalyzer/test/TestLuaLinter.java" afterDir="false" />
     </list>
@@ -207,7 +206,21 @@
       <option name="project" value="LOCAL" />
       <updated>1684535865067</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added dependency linter. Adjusted regexes for web format of modules">
+      <created>1684708353034</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1684708353035</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Added dependency linter. Adjusted regexes for web format of modules">
+      <created>1684708411363</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1684708411363</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -233,15 +246,16 @@
     <MESSAGE value="Added query for all modules on LoLWiki" />
     <MESSAGE value="Pipelined fetch of all modules and analyze of single module" />
     <MESSAGE value="Created simple function linter" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created simple function linter" />
+    <MESSAGE value="Added dependency linter. Adjusted regexes for web format of modules" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added dependency linter. Adjusted regexes for web format of modules" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/lualinter/LuaLinter.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="2" />
+          <line>59</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -49,6 +49,24 @@ public class LuaLinter {
         return dependencies;
     }
 
+    public String getFunctionCode(LuaFunction function) {
+        String functionPattern = String.format("function *?(%s)\\.?(%s)\\((%s)\\)",
+                function.getParentTable(),
+                function.getName(),
+                String.join(", *", function.getArguments()));
+        Pattern pattern = Pattern.compile(functionPattern);
+        Matcher m = pattern.matcher(code);
+        if(m.find()) {
+            String subCode = code.substring(m.start());
+            Pattern endPattern = Pattern.compile("\\\\nend");
+            Matcher endMatcher = endPattern.matcher(subCode);
+            endMatcher.find();
+            return subCode.substring(0, endMatcher.end());
+        }
+
+        return "";
+    }
+
     //TODO
     public List<String> listGlobalVariables() {
         Pattern localVarPattern = Pattern.compile("(.*?)");
