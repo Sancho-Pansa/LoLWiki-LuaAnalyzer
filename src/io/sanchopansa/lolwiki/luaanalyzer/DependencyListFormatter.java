@@ -25,4 +25,8 @@ public class DependencyListFormatter {
             writer.write(("\n").getBytes(StandardCharsets.UTF_8));
         }
     }
+
+    public String[] convertToGraph() {
+        return null;
+    }
 }
