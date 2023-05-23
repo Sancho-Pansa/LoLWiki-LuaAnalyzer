@@ -9,8 +9,5 @@
         <module name="LoLWiki-LuaAnalyzer" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="LoLWiki-LuaAnalyzer" target="18" />
-    </bytecodeTargetLevel>
   </component>
 </project>
