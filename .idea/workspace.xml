@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea5dd4e1-09d4-48ba-91de-c909c17fe9b1" name="Changes" comment="Added dependency linter. Adjusted regexes for web format of modules">
+    <list default="true" id="ea5dd4e1-09d4-48ba-91de-c909c17fe9b1" name="Changes" comment="Added function for retrieving specific function">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/lualinter/LuaLinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/lualinter/LuaLinter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/lualinter/LuaFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/lualinter/LuaFunction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/io/sanchopansa/lolwiki/luaanalyzer/test/TestLuaLinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/io/sanchopansa/lolwiki/luaanalyzer/test/TestLuaLinter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +61,7 @@
       <recent name="io.sanchopansa.lolwiki.luaanalyzer.lualinter" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestLuaLinter">
+  <component name="RunManager" selected="Application.MainClass">
     <configuration name="MainClass" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="io.sanchopansa.lolwiki.luaanalyzer.MainClass" />
       <module name="LoLWiki-LuaAnalyzer" />
@@ -220,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684708411363</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added function for retrieving specific function">
+      <created>1684792677890</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1684792677890</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -247,18 +254,8 @@
     <MESSAGE value="Pipelined fetch of all modules and analyze of single module" />
     <MESSAGE value="Created simple function linter" />
     <MESSAGE value="Added dependency linter. Adjusted regexes for web format of modules" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added dependency linter. Adjusted regexes for web format of modules" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/io/sanchopansa/lolwiki/luaanalyzer/lualinter/LuaLinter.java</url>
-          <line>59</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Added function for retrieving specific function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added function for retrieving specific function" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
