@@ -1,6 +1,7 @@
 package io.sanchopansa.lolwiki.luaanalyzer;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -26,5 +27,18 @@ public class MainClass {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        StringBuilder sBuilder = new StringBuilder();
+        Arrays.stream(formatter.convertToGraph())
+                .forEach(a -> {
+                    sBuilder.append("[");
+                    Arrays.stream(a)
+                            .forEach(b -> {
+                                sBuilder.append(b);
+                                sBuilder.append(", ");
+                            });
+                    sBuilder.append("]\n");
+                });
+        System.out.println(sBuilder);
     }
 }
